@@ -1,7 +1,14 @@
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import NewHackathonForm from "~/components/forms/new-hackathon";
+import { auth } from "~/server/auth";
 
-export default function NewHackathonPage() {
+export default async function NewHackathonPage() {
+  const session = await auth();
+
+  if (!session) {
+    redirect("/");
+  }
   return (
     <div className="flex flex-col gap-4">
       <div className="flex justify-around">
