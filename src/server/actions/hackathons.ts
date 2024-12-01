@@ -11,7 +11,6 @@ const NewHackathon = z.object({
   description: z.string(),
   startDate: z.date(),
   endDate: z.date(),
-  status: z.nativeEnum(HackathonStatus),
 });
 
 export async function createHackathon(formData: FormData) {
